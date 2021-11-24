@@ -65,6 +65,10 @@ var formSubmitHandler = function (e) {
 
 	// get value from input element
 	var query = queryInputEl.value.trim();
+
+	if (query) {
+		getMovieInfo = movieTitle
+	}
 };
 // FUNCTION SECTION END ^^^----------------------------------------------------------------^^^
 
