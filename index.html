@@ -3,17 +3,16 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<!--Import materialize.css-->
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		
+		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<!-- toDo: add favicon to images folder -->
-		<!-- <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg" /> -->
-
-		<!-- toDo: Choose fonts -->
-		<!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet" /> -->
-
-		<!-- toDo: Determine font awesome use -->
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" /> -->
-		<link rel="stylesheet" href="./assets/css/style.css" />
+		
+		<!-- Our stylesheet: -->
+		<!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
 
 		<title>AFM Tax Credit Tool</title>
 	</head>
@@ -35,14 +34,38 @@
 			</div>
 			<!-- SEARCH FORM SECTION END -->
 			<!-- MOVIE SEARCH RESULTS SECTION START -->
-			<div>Showing Search Results Repo Search Term: <span id="movie-search-term"></span></div>
-			<div id="movies-container"></div>
+			<div>Search Term: <span id="movie-search-term"></span></div>
+			<!-- search results will go in this <div> -->
+			<div id="movies-container">
+				<a class="" href="">The Matrix</a>
+				<div class="row">
+					<div class="col s12 m4 l3">
+						<div class="card">
+							<div class="card-image">
+								<img src="https://www.fillmurray.com/200/300" />
+								<span class="card-title">Card Title</span>
+							</div>
+							<div class="card-content">
+								<p>
+									I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup
+									to use effectively.
+								</p>
+							</div>
+							<div class="card-action">
+								<a href="#">This is a link</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- MOVIE SEARCH RESULTS SECTION END -->
 		</main>
 		<!-- MAIN SECTION END -->
 		<!-- JAVASCRIPT START-->
 		<!-- toDo: consider using async or defer? -->
 		<script src="./assets/js/script.js"></script>
+		<!-- Compiled and minified Materialize JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<!-- JAVASCRIPT END -->
 	</body>
 </html>
