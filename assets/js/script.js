@@ -107,6 +107,12 @@ var getMovieInfo = function (x) {
 	});
 };
 
+//Mobile Device: Collapsible SideNav
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
 // FUNCTION SECTION END ^^^----------------------------------------------------------------^^^
 
 // EVENT LISTENERS START: event listeners for form & button container VVV----------------------------------------------------------------VVV
