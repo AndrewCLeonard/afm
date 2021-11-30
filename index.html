@@ -6,7 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- toDo: add favicon to images folder -->
-		<!-- <link rel="icon" type="image/x-icon" href="./assets/images/favicon.jpg" /> -->
+	      <!--Import Google Icon Font-->
+		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!-- toDo: Choose fonts -->
 		<!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet" /> -->
@@ -14,19 +15,114 @@
 		<!-- toDo: Determine font awesome use -->
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" /> -->
 		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-		<title>AFM Tax Credit Tool</title>
+		<title>Movie Instant Search Tool </title>
 	</head>
 	<body>
-		<div>
-			<form id="query-form" class="">
-				<label for="query" class="form-label">Seach query</label>
-				<input type="text" name="query" id="query" autofocus="true" />
-				<button type="submit" cls="btn">Search</button>
-			</form>
-		</div>
+		<nav class="grey darken-4"> 
+			<div class="nav-wrapper">
+			  <a href="#" class="brand-logo right">MIST</a>
+			  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="left-align material-icons">menu</i></a>
+			  <ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="#" id="about">ABOUT</a></li>
+				<li><a href="#" id="services">SERVICES</a></li>
+			  </ul>
+			</div>
+		  </nav>
+		<ul class="sidenav" id="mobile-nav">
+			<li>ABOUT</li>
+			<li>SERVICES</li>		
+		</ul>
+
+		<!-- MAIN SECTION START -->
+		<main>
+			<!-- SEARCH FORM SECTION START -->
+			<!-- class TBD, probably class "card" -->
+			<div class="container">
+				<!-- card header -->
+					  <div class="card horizontal">
+						<div class="card-image white-text grey-darken-4">	
+						  <span class="card-title">About Us</span>
+						</div>
+						<div class="card-stacked">
+						<div class="card-content">
+							<h3 class="center-align">About Us</h3>
+						  <p  id="about" class=""> We wish to shed more light on the ever expansive cienematic world from a behind the curtain. To be exact, finding movies that meet requirements for tax credits, that are not only beneficial for the state giving them due to advantageous filming movies can be for not only the town but entire state, but also making sure the all those apart of the movie crew, such as musicians are allocated those benfits as well.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="card horizontal">
+					  <div class="card-image white-text grey-darken-4">
+						<span class="card-title">Services</span>
+						</div>
+						<div class="card-stacked">
+							<div class="card-content">
+							<h3 class="center-align">Services</h3>
+						  <p>We know how hard it can be to find a movie with the all the infomation you need. It can almost be like navigating through mist, which can feel very fustrating. Try out our website in helping you find movies via query to make things on your end a little less tedious. We hope it makes one less hectic in your day. Enjoy path through the MIST without getting lost and hope to see you soon!</p>
+						</div>
+	
+					  </div>
+					</div>
+				  </div>
+					
+				  <br></br>
+
+				<h2 class="flow-text center-align">Search by Movie Title</h2>
+				<!-- `form` is the card body -->
+				<form id="query-form" class="center-align">
+		
+						<label for="query" class=""></label>
+						<input type="text" name="query" id="query-input" autofocus="true">
+						<button id="searchbtn" class="btn grey darken-3 white-text btn-md" type="submit">Search</button>
+				</form>
+				
+				<br></br>
+
+			</div>
+			<!-- SEARCH FORM SECTION END -->
+			<!-- MOVIE SEARCH RESULTS SECTION START -->
+			<div class="center-align flow-text">
+				<h5>Search Results Repo Search Term:</h5>  
+				<span id="movie-search-term"></span></div>
+			<div id="movies-container" class="search-results">
+				<!--<div id="movies-container" class="collection">
+					<a href="#!" class="collection-item active">item</a>
+					<a href="#!" class="collection-item ">item</a>
+					<a href="#!" class="collection-item">item</a>
+					<a href="#!" class="collection-item">item</a>
+				  </div>
+			</div> -->
+
+
+
+
+			<!-- MOVIE SEARCH RESULTS SECTION END -->
+		</main>
+
+		<br></br>
+
+        <footer id="footer" class="page-footer grey darken-4">
+			<div class="container">
+			  <div class="row center-align">
+				<div class="col l6 s12">
+				  <p class="white-text left-align">Thank you for using our services and we hope you found what you needed.</p>
+				</div>
+			  </div>
+			</div>
+			<div class="footer-copyright">
+				<a href="#" class="brand-logo left-align">
+					<img class="responsive img center-align" src="./assets/images/logo.png">
+			  <div class="container">
+			  © 2014 Copyright Text
+			  </div>
+			</div>
+		  </footer>
+		<!-- MAIN SECTION END -->
 		<!-- JAVASCRIPT START-->
 		<!-- toDo: consider using async or defer? -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="./assets/js/script.js"></script>
 		<!-- JAVASCRIPT END -->
 	</body>
