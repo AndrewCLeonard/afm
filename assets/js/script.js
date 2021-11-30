@@ -50,18 +50,24 @@ var displayMovies = function (movies, searchTerm) {
 		divClassCardContentEl.classlist = "card-content";
 
 		// #3 div w/ movie title
-		var movieTi
+		var movieTitle = document.createElement("div");
+		movieTitle.classList = "card-title";
+
+		// #4 div w/ links (will do later after testing what I have above)
+
 		/* V2 CREATE CONTAINER END */
 
+		
 		/* ORIGINAL CREATE CONTAINER START */
 		// create container for each movie result
 		// var movieEl = document.createElement("a");
 
-		/* ??? Add classes to turn each movie into a card */
+		// ??? Add classes to turn each movie into a card
 		// movieEl.classList = "";
 		// set link for each card. ??? Link to the IMDb page showing full cast & crew?
 		// movieEl.setAttribute("href", ""); // ??? Clicking on it shows a modal?
 		/* ORIGINAL CREATE CONTAINER END */
+
 
 		// create a span element to hold movie info // ??? Is <span> (span is inline) *really* the best element to hold content? Using a <div> would provide block-level element
 		// var movieTitleEl = document.createElement("span");
