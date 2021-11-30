@@ -37,27 +37,35 @@ var displayMovies = function (movies, searchTerm) {
 	// loop over api search results
 	for (var i = 0; i < movies.length; i++) {
 		// format how movie names are displayed as "TITLE (RELEASE YEAR)"
+		// #4 inside the DOM tree
 		var movieTitle = movies[i].title;
 
 		/* V2 CREATE CONTAINER START */
 
 		// #1 div w/ .card
-		var movieEl = document.createElement("div");
-		movieEl.classList = "card";
+		var movieCardEl = document.createElement("div");
+		movieCardEl.classList = "card";
 
 		// #2 div w/ .card-content
 		var divClassCardContentEl = document.createElement("div");
-		divClassCardContentEl.classlist = "card-content";
+		divClassCardContentEl.classList = "card-content";
 
 		// #3 div w/ movie title
-		var movieTitle = document.createElement("div");
-		movieTitle.classList = "card-title";
+		var divClassCardTitleEl = document.createElement("div");
+		divClassCardTitleEl.classList = "card-title";
+
+		// N.B. Need to work inside back out when using `.appendchild`
+		// append movieTitle (#4) to divClassCardTitleEl (#3)
+		divClassCardTitleEl.appendChild(movieTitle);
+
+		// append card-title to card-content
+		divCl
+
 
 		// #4 div w/ links (will do later after testing what I have above)
 
 		/* V2 CREATE CONTAINER END */
 
-		
 		/* ORIGINAL CREATE CONTAINER START */
 		// create container for each movie result
 		// var movieEl = document.createElement("a");
@@ -67,7 +75,6 @@ var displayMovies = function (movies, searchTerm) {
 		// set link for each card. ??? Link to the IMDb page showing full cast & crew?
 		// movieEl.setAttribute("href", ""); // ??? Clicking on it shows a modal?
 		/* ORIGINAL CREATE CONTAINER END */
-
 
 		// create a span element to hold movie info // ??? Is <span> (span is inline) *really* the best element to hold content? Using a <div> would provide block-level element
 		// var movieTitleEl = document.createElement("span");
