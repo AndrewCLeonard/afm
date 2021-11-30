@@ -6,13 +6,13 @@
 		<!--Import Google Icon Font-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 		<!--Import materialize.css-->
-		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
+
 		<!-- Our stylesheet: -->
-		<!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+		<link rel="stylesheet" href="./assets/css/style.css" />
 
 		<title>AFM Tax Credit Tool</title>
 	</head>
@@ -37,22 +37,21 @@
 			<div>Search Term: <span id="movie-search-term"></span></div>
 			<!-- search results will go in this <div> -->
 			<div id="movies-container">
-				<a class="" href="">The Matrix</a>
-				<div class="row">
-					<div class="col s12 m4 l3">
-						<div class="card">
+				<div class="row"> <!-- remains hardcoded -->
+					<div class="col s12 m4 l3"> <!-- remains hardcoded -->
+						<div class="card"> <!-- #1 element to create -->
+							<div class="card-content"> <!-- #2 element to create -->
+								<span class="card-title">The Matrix (1999)</span> <!-- #3 element to create, include `movies[i].title` -->
+								<div class="card-action"> <!-- #4 element to create -->
+									<ul>	<!-- #5 -->
+										<li><a href="#">IMDB link</a></li>
+										<li><a href="#">SAG-AFTRA link</a></li>
+									</ul>
+								</div>
+							</div>
 							<div class="card-image">
-								<img src="https://www.fillmurray.com/200/300" />
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>
-									I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup
-									to use effectively.
-								</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
+								<img src="https://www.fillmurray.com/268/370" />
+								<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
 							</div>
 						</div>
 					</div>

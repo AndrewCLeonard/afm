@@ -1,3 +1,10 @@
+/*  move floating button to top of image
+    class from Materialize: changed `bottom` to `top`  */
+.btn-floating.halfway-fab {
+    position: absolute;
+    right: 24px;
+    top: -20px;
+}
 
 /* DEBUGGING/TESTING SECTION START */
 form * {

@@ -40,10 +40,17 @@ var displayMovies = function (movies, searchTerm) {
 		var movieTitle = movies[i].title;
 
 		/* V2 CREATE CONTAINER START */
-		var movieEl = function () {
-			document.createElement("div");
-			movieEl.classList = "card";
-		};
+
+		// #1 div w/ .card
+		var movieEl = document.createElement("div");
+		movieEl.classList = "card";
+
+		// #2 div w/ .card-content
+		var divClassCardContentEl = document.createElement("div");
+		divClassCardContentEl.classlist = "card-content";
+
+		// #3 div w/ movie title
+		var movieTi
 		/* V2 CREATE CONTAINER END */
 
 		/* ORIGINAL CREATE CONTAINER START */
