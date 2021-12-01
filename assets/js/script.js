@@ -6,16 +6,12 @@ var data = {};
 
 // queryFormEl is the entire form element
 var queryFormEl = document.querySelector("#query-form");
-
 // queryInputEl is the text input
 var queryInputEl = document.querySelector("#query-input");
-
 // LAYOUT: selector to create div where movie search results will be displayed
 var movieContainerEl = document.querySelector("#movies-container");
-
 // selector for movie search term
 var movieSearchTerm = document.querySelector("#movie-search-term");
-
 // for manipulating any eventual data labels on buttons
 var querySearchOption = document.querySelector("#query-search-option");
 
@@ -38,31 +34,36 @@ var displayMovies = function (movies, searchTerm) {
 	for (var i = 0; i < movies.length; i++) {
 		// format how movie names are displayed as "TITLE (RELEASE YEAR)"
 		// #4 inside the DOM tree
-		var movieTitle = movies[i].title;
+		// var movieTitle = movies[i].title;
 
 		/* V2 CREATE CONTAINER START */
 
 		// #1 div w/ .card
 		var movieCardEl = document.createElement("div");
 		movieCardEl.classList = "card";
+		console.log("movieCardEl", movieCardEl); // test
 
 		// #2 div w/ .card-content
 		var divClassCardContentEl = document.createElement("div");
 		divClassCardContentEl.classList = "card-content";
+		console.log("divClassCardContentEl", divClassCardContentEl); // test
 
 		// #3 div w/ movie title
 		var divClassCardTitleEl = document.createElement("div");
 		divClassCardTitleEl.classList = "card-title";
+		// #4 movieTitle will be .textContent for #3 divClassCardTitleEl
+		divClassCardTitleEl.textContent = movies[i].title;
+		console.log("divClassCardTitleEl", divClassCardTitleEl.textContent); // test
 
 		// N.B. Need to work inside back out when using `.appendchild`
-		// append movieTitle (#4) to divClassCardTitleEl (#3)
-		divClassCardTitleEl.appendChild(movieTitle);
+		// append card-title w/ movie title textContent (#3 & #4) to divClassCardTitleEl (#2)
+		divClassCardContentEl.appendChild(divClassCardTitleEl);
 
-		// append card-title to card-content
-		divCl
+		// append #2-4 to div movieCardEl
+		movieCardEl.appendChild(divClassCardContentEl);
 
-
-		// #4 div w/ links (will do later after testing what I have above)
+		// append movieCardEl to movieContainerEl
+		movieContainerEl.appendChild(movieCardEl);
 
 		/* V2 CREATE CONTAINER END */
 
@@ -78,10 +79,9 @@ var displayMovies = function (movies, searchTerm) {
 
 		// create a span element to hold movie info // ??? Is <span> (span is inline) *really* the best element to hold content? Using a <div> would provide block-level element
 		// var movieTitleEl = document.createElement("span");
-		movieEl.textContent = movieTitle;
 
 		// append to container
-		movieContainerEl.appendChild(movieEl);
+		// movieContainerEl.appendChild(movieEl);
 		// movieEl.appentChild(movieTitleEl);
 	}
 };
@@ -95,6 +95,7 @@ var displayMovies = function (movies, searchTerm) {
 		- and send it to `getMovieInfo` for fetch request.     
 		- N.B. e = "event"
  */
+
 var formSubmitHandler = function (e) {
 	// prevent page refresh
 	e.preventDefault();
