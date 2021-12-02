@@ -39,6 +39,8 @@
 		<main>
 			<!-- SEARCH FORM SECTION START -->
 			<!-- class TBD, probably class "card" -->
+
+			
 			<div class="container">
 				<!-- card header -->
 					  <div class="card horizontal">
@@ -48,10 +50,11 @@
 						<div class="card-stacked">
 						<div class="card-content">
 							<h3 class="center-align">About Us</h3>
-						  <p  id="about" class=""> We wish to shed more light on the ever expansive cienematic world from a behind the curtain. To be exact, finding movies that meet requirements for tax credits, that are not only beneficial for the state giving them due to advantageous filming movies can be for not only the town but entire state, but also making sure the all those apart of the movie crew, such as musicians are allocated those benfits as well.</p>
+						  <p  id="about" class=""> We wish to shed more light on the ever expansive cinematic world from a behind the curtain. To be exact, finding movies that meet requirements for tax credits, that are not only beneficial for the state giving them due to advantageous filming movies can be for not only the town but entire state, but also making sure the all those apart of the movie crew, such as musicians are allocated those benfits as well.</p>
 						</div>
 					</div>
 				</div>
+			</div>
 
 				<div class="card horizontal">
 					  <div class="card-image white-text grey-darken-4">
@@ -66,59 +69,69 @@
 					  </div>
 					</div>
 				  </div>
-					
+
+				  <div class="row">
+					<form class="col s12">
+					  <div class="row">
+						  		<!-- Search-->
+						<div class="input-field col s6">
+						<form id="query-form" class="center-align">
+							<h2 class="flow-text center-align">Search by Movie Title</h2>
+						<label for="query" class=""></label>
+						<input type="text" name="query" id="query-input" autofocus="true">
+						<button class="btn grey darken-3 white-text btn-md" id="searchbtn"  type="submit">Search</button>
+						</form>
+					</div>
+					  </div>
+					  </div>
+					</form>
+				  </div>	
 				  <br></br>
 
-				<h2 class="flow-text center-align">Search by Movie Title</h2>
+				<!--<h2 class="flow-text center-align">Search by Movie Title</h2>-->
 				<!-- `form` is the card body -->
+			<!--	<div class="center-align">
 				<form id="query-form" class="center-align">
 		
 						<label for="query" class=""></label>
 						<input type="text" name="query" id="query-input" autofocus="true">
-						<button id="searchbtn" class="btn grey darken-3 white-text btn-md" type="submit">Search</button>
+						<button class="btn grey darken-3 white-text btn-md" id="searchbtn"  type="submit">Search</button>
 				</form>
+			</div> -->
 				
 				<br></br>
 
 			</div>
+
 			<!-- SEARCH FORM SECTION END -->
 			<!-- MOVIE SEARCH RESULTS SECTION START -->
 			<div class="center-align flow-text">
 				<h5>Search Results Repo Search Term:</h5>  
 				<span id="movie-search-term"></span></div>
 			<div id="movies-container" class="search-results">
-				<!--<div id="movies-container" class="collection">
-					<a href="#!" class="collection-item active">item</a>
-					<a href="#!" class="collection-item ">item</a>
-					<a href="#!" class="collection-item">item</a>
-					<a href="#!" class="collection-item">item</a>
-				  </div>
-			</div> -->
-
-
-
-
+				
 			<!-- MOVIE SEARCH RESULTS SECTION END -->
 		</main>
 
 		<br></br>
 
-        <footer id="footer" class="page-footer grey darken-4">
+        <footer class="page-footer grey darken-4">
 			<div class="container">
 			  <div class="row center-align">
-				<div class="col l6 s12">
-				  <p class="white-text left-align">Thank you for using our services and we hope you found what you needed.</p>
+				<div class="col l12 s12">
+				  <p class="white-text">Thank you for using our services and we hope you found what you needed.</p>
+				  <a href="#" class="brand-logo">
+					<img style="width: 200px; height: 200px;" class="responsive img center-align" src="./assets/images/logo.png">	
+				</a>
+				  
+				<div class="footer-copyright">
+					© 2021 Copyright Text	
 				</div>
-			  </div>
+					
+				</div>
+			   </div>
 			</div>
-			<div class="footer-copyright">
-				<a href="#" class="brand-logo left-align">
-					<img class="responsive img center-align" src="./assets/images/logo.png">
-			  <div class="container">
-			  © 2014 Copyright Text
-			  </div>
-			</div>
-		  </footer>
+		</footer>
 		<!-- MAIN SECTION END -->
 		<!-- JAVASCRIPT START-->
 		<!-- toDo: consider using async or defer? -->
