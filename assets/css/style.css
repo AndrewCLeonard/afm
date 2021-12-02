@@ -42,13 +42,9 @@ form {
 }
 
   .white-text{
-      float: right;
+      float: center;
   }
 
-  #searchbtn {
-      text-align: center;
-     
-  }
 
   .search-results{
       grid-auto-rows: 1;
