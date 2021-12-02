@@ -36,7 +36,7 @@ var displayMovies = function (movies, searchTerm) {
 		// #4 inside the DOM tree
 		// var movieTitle = movies[i].title;
 
-		/* V2 CREATE CONTAINER START */
+		/* SECTION START: CREATE HTML STRUCTURE TO HOLD MOVIE RESULTS IN MATERIALIZE CSS VVV----------------------------------------------------------------VVV */
 
 		// #1 div w/ .card
 		var movieCardEl = document.createElement("div");
@@ -54,8 +54,20 @@ var displayMovies = function (movies, searchTerm) {
 		// #4 movieTitle will be .textContent for #3 divClassCardTitleEl
 		divClassCardTitleEl.textContent = movies[i].title;
 		console.log("divClassCardTitleEl", divClassCardTitleEl.textContent); // test
+		// #5 .card-action div for holding card links in Materialize format
+		var divClassCardActionEl = document.createElement("div");
+		divClassCardActionEl.classList = "card-action"
+
+
+		/* SECTION END: CREATE HTML STRUCTURE TO HOLD MOVIE RESULTS IN MATERIALIZE CSS ^^^----------------------------------------------------------------^^^ */
+
+
+		/* SECTION START: APPEND TO DOM USING MATERIALIZE CSS FORMAT VVV----------------------------------------------------------------VVV */
 
 		// N.B. Need to work inside back out when using `.appendchild`
+
+		// 
+
 		// append card-title w/ movie title textContent (#3 & #4) to divClassCardTitleEl (#2)
 		divClassCardContentEl.appendChild(divClassCardTitleEl);
 
@@ -64,27 +76,10 @@ var displayMovies = function (movies, searchTerm) {
 
 		// append movieCardEl to movieContainerEl
 		movieContainerEl.appendChild(movieCardEl);
-
-		/* V2 CREATE CONTAINER END */
-
-		/* ORIGINAL CREATE CONTAINER START */
-		// create container for each movie result
-		// var movieEl = document.createElement("a");
-
-		// ??? Add classes to turn each movie into a card
-		// movieEl.classList = "";
-		// set link for each card. ??? Link to the IMDb page showing full cast & crew?
-		// movieEl.setAttribute("href", ""); // ??? Clicking on it shows a modal?
-		/* ORIGINAL CREATE CONTAINER END */
-
-		// create a span element to hold movie info // ??? Is <span> (span is inline) *really* the best element to hold content? Using a <div> would provide block-level element
-		// var movieTitleEl = document.createElement("span");
-
-		// append to container
-		// movieContainerEl.appendChild(movieEl);
-		// movieEl.appentChild(movieTitleEl);
 	}
 };
+
+/* SECTION END: APPEND TO DOM USING MATERIALIZE CSS FORMAT ^^^----------------------------------------------------------------^^^ */
 
 /* step #2:
 	- activated by `addEventListener` triggered when there's a "submit" anywhere on the form element
@@ -118,7 +113,9 @@ var formSubmitHandler = function (e) {
 /* step #3: 
 - `formSubmitHandler` sends search query as parameter to `getMovieInfo` here.
 - this uses API `fetch` request to get movie titles w/ related data as JSON
-- N.B. on lines 80 & 82, they're parameters, but the function call `displayMovies` has arguments */
+- N.B. on lines 80 & 82, they're parameters, but the function call `displayMovies` has arguments 
+- sends it to step #4 `displayMovies` 
+*/
 var getMovieInfo = function (x) {
 	// format the api url -- ??? test the optional chaining by intentionally goofing up the url
 	var apiUrl = "https://imdb-api.com/en/API/SearchMovie/k_vm8gj4hz/" + x;
