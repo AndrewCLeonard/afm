@@ -49,15 +49,15 @@ var displayMovies = function (movies, searchTerm) {
 		console.log("divClassCardContentEl", divClassCardContentEl); // test
 
 		// #3 div w/ movie title
-		var divClassCardTitleEl = document.createElement("div");
-		divClassCardTitleEl.classList = "card-title";
-		// #4 movieTitle will be .textContent for #3 divClassCardTitleEl
-		divClassCardTitleEl.textContent = movies[i].title;
+		var spanClassCardTitleEl = document.createElement("span");
+		spanClassCardTitleEl.classList = "card-title";
+		// #4 movieTitle will be .textContent for #3 spanClassCardTitleEl
+		spanClassCardTitleEl.textContent = movies[i].title;
 		// #4A to get the year of the movie
 		var divClassCardTitleYearEl = document.createElement("span");
-		divClassCardTitleYearEl.textContent = movies[i].description;
+		divClassCardTitleYearEl.textContent = ` ${movies[i].description}`;
 
-		console.log("divClassCardTitleEl", divClassCardTitleEl.textContent); // test
+		console.log("spanClassCardTitleEl", spanClassCardTitleEl.textContent); // test
 		console.log("divClassCardTitleYearEl", divClassCardTitleYearEl); // test
 
 		// #3.1 .card-action div for holding card links in Materialize format
@@ -72,22 +72,39 @@ var displayMovies = function (movies, searchTerm) {
 		divClassCardActionImdbUrlEl.setAttribute("target", "_blank");
 		divClassCardActionImdbUrlEl.textContent = "IMDB link";
 
+		// div.cardImage
+		var divClassCardImageEl = document.createElement("div");
+		divClassCardImageEl.classList = "card-image";
+
+		// create add button
+		var addButton = document.createElement("a");
+		addButton.classList = "btn-floating halfway-fab waves-effect waves-light red";
+		var materialIcons = document.createElement("i");
+		materialIcons.classList = "material-icons";
+		materialIcons.textContent = "add";
+
 		// #6 create movie poster image
 		var posterImageEl = document.createElement("img");
 		posterImageEl.src = `${movies[i].image}`;
-		posterImageEl.setAttribute();
+		posterImageEl.classList = "responsive-img materialboxed";
 		console.log("posterImageEl", posterImageEl);
-		// append poster to div.card
-		movieCardEl.appendChild(posterImageEl);
 
 		/* SECTION END: CREATE HTML STRUCTURE TO HOLD MOVIE RESULTS IN MATERIALIZE CSS ^^^-----------------------------------------------------------------^^^ */
 
 		/* SECTION START: APPEND TO DOM USING MATERIALIZE CSS FORMAT VVV----------------------------------------------------------------VVV */
 
+		// append poster to div.card
+		movieCardEl.appendChild(divClassCardImageEl);
+		divClassCardImageEl.appendChild(posterImageEl);
+		divClassCardImageEl.appendChild(addButton).appendChild(materialIcons);
+
+		// append #2-4 to div movieCardEl
+		movieCardEl.appendChild(divClassCardContentEl);
+
 		// N.B. Need to work inside back out when using `.appendchild`
-		// append card-title w/ movie title textContent (#3 & #4) to divClassCardTitleEl (#2)
-		divClassCardContentEl.appendChild(divClassCardTitleEl);
-		divClassCardTitleEl.appendChild(divClassCardTitleYearEl); // ??? Need to insert a space
+		// append card-title w/ movie title textContent (#3 & #4) to spanClassCardTitleEl (#2)
+		divClassCardContentEl.appendChild(spanClassCardTitleEl);
+		spanClassCardTitleEl.appendChild(divClassCardTitleYearEl); // ??? Need to insert a space
 
 		// create HTML for div.card-action anchor tags
 		function createImdbLink() {
@@ -101,9 +118,6 @@ var displayMovies = function (movies, searchTerm) {
 
 		// append div.card-action to div.card-content so it's a sibling of span.card-title
 		divClassCardContentEl.appendChild(divClassCardActionEl);
-
-		// append #2-4 to div movieCardEl
-		movieCardEl.appendChild(divClassCardContentEl);
 
 		// append movieCardEl to movieContainerEl
 		movieContainerEl.appendChild(movieCardEl);
