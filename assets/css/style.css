@@ -1,22 +1,13 @@
+/*  move floating button to top of image
+    class from Materialize: changed `bottom` to `top`  */
 
 /* DEBUGGING/TESTING SECTION START 
 form * {
-    border: 2px solid rgb(28, 41, 31);
+    /* border: 2px solid darkblue; */
 }
 form {
-    border: 2px solid rgb(103, 112, 100);
-} */
-/*.movies.container input {
-    padding: 5px !important;
-    font-size:18px !important;
-    width: 90% !important;
-    border: #f4f4f4 3px solid !important
-
-}*/
-
-
-
-
+    /* border: 2px solid lightblue; */
+}
 /* DEBUGGING/TESTING SECTION END */
 
 .nav-wrapper {

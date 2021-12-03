@@ -9,11 +9,10 @@
 	      <!--Import Google Icon Font-->
 		  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<!-- toDo: Choose fonts -->
-		<!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet" /> -->
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- toDo: Determine font awesome use -->
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" /> -->
+		<!-- Our stylesheet: -->
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -86,14 +85,14 @@
 			<div class="center-align flow-text">
 				<h5>Search Results Repo Search Term:</h5>  
 				<span id="movie-search-term"></span></div>
-			<div id="movies-container" class="search-results">
-				<!--<div id="movies-container" class="collection">
-					<a href="#!" class="collection-item active">item</a>
-					<a href="#!" class="collection-item ">item</a>
-					<a href="#!" class="collection-item">item</a>
-					<a href="#!" class="collection-item">item</a>
-				  </div>
-			</div> -->
+			<!-- search results will go in this <div> -->
+			<div class="row">
+				<!-- remains hardcoded -->
+				<div class="col s12 m4 l3" id="movies-container">
+					<!-- remains hardcoded -->
+					<!-- START OF JS DOM CREATION -->
+				</div>
+			</div>
 
 
 
@@ -124,6 +123,8 @@
 		<!-- toDo: consider using async or defer? -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="./assets/js/script.js"></script>
+		<!-- Compiled and minified Materialize JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<!-- JAVASCRIPT END -->
 	</body>
 </html>
