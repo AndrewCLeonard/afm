@@ -6,16 +6,12 @@ var data = {};
 
 // queryFormEl is the entire form element
 var queryFormEl = document.querySelector("#query-form");
-
 // queryInputEl is the text input
 var queryInputEl = document.querySelector("#query-input");
-
 // LAYOUT: selector to create div where movie search results will be displayed
 var movieContainerEl = document.querySelector("#movies-container");
-
 // selector for movie search term
 var movieSearchTerm = document.querySelector("#movie-search-term");
-
 // for manipulating any eventual data labels on buttons
 var querySearchOption = document.querySelector("#query-search-option");
 
@@ -36,25 +32,99 @@ var displayMovies = function (movies, searchTerm) {
 
 	// loop over api search results
 	for (var i = 0; i < movies.length; i++) {
-		// format how movie names are displayed as "TITLE (RELEASE YEAR)" by using `.fullTitle`
-		var movieTitle = movies[i].title;
+		// format how movie names are displayed as "TITLE (RELEASE YEAR)"
+		// #4 inside the DOM tree
+		// var movieTitle = movies[i].title;
 
-		// create container for each movie result
-		var movieEl = document.createElement("a");
-		/* ??? Add classes to turn each movie into a card */
-		movieEl.classList = "";
-		// set link for each card. ??? Link to the IMDb page showing full cast & crew?
-		movieEl.setAttribute("href", ""); // ??? Clicking on it shows a modal?
+		/* SECTION START: CREATE HTML STRUCTURE TO HOLD MOVIE RESULTS IN MATERIALIZE CSS VVV----------------------------------------------------------------VVV */
 
-		// create a span element to hold movie info // ??? Is <span> (span is inline) *really* the best element to hold content? Using a <div> would provide block-level element
-		// var movieTitleEl = document.createElement("span");
-		movieEl.textContent = movieTitle;
+		// #1 div w/ .card
+		var movieCardEl = document.createElement("div");
+		movieCardEl.classList = "card small";
+		console.log("movieCardEl", movieCardEl); // test
 
-		// append to container
-		movieContainerEl.appendChild(movieEl);
-		// movieEl.appentChild(movieTitleEl);
+		// #2 div w/ .card-content
+		var divClassCardContentEl = document.createElement("div");
+		divClassCardContentEl.classList = "card-content";
+		console.log("divClassCardContentEl", divClassCardContentEl); // test
+
+		// #3 div w/ movie title
+		var spanClassCardTitleEl = document.createElement("span");
+		spanClassCardTitleEl.classList = "card-title";
+		// #4 movieTitle will be .textContent for #3 spanClassCardTitleEl
+		spanClassCardTitleEl.textContent = movies[i].title;
+		// #4A to get the year of the movie
+		var divClassCardTitleYearEl = document.createElement("span");
+		divClassCardTitleYearEl.textContent = ` ${movies[i].description}`;
+
+		console.log("spanClassCardTitleEl", spanClassCardTitleEl.textContent); // test
+		console.log("divClassCardTitleYearEl", divClassCardTitleYearEl); // test
+
+		// #3.1 .card-action div for holding card links in Materialize format
+		// N.B. need to append *after* appending movieTitle for proper HTML order
+		var divClassCardActionEl = document.createElement("div");
+		divClassCardActionEl.classList = "card-action";
+
+		// #5A  create imdb links
+		var divClassCardActionImdbUrlEl = document.createElement("a");
+		// #5B create <a> to nest inside <p>
+		divClassCardActionImdbUrlEl.setAttribute("href", "https://www.imdb.com/title/" + movies[i].id + "/fullcredits/?ref_=tt_cl_sm");
+		divClassCardActionImdbUrlEl.setAttribute("target", "_blank");
+		divClassCardActionImdbUrlEl.textContent = "IMDB link";
+
+		// div.cardImage
+		var divClassCardImageEl = document.createElement("div");
+		divClassCardImageEl.classList = "card-image";
+
+		// create add button
+		var addButton = document.createElement("a");
+		addButton.classList = "btn-floating halfway-fab waves-effect waves-light red";
+		var materialIcons = document.createElement("i");
+		materialIcons.classList = "material-icons";
+		materialIcons.textContent = "add";
+
+		// #6 create movie poster image
+		var posterImageEl = document.createElement("img");
+		posterImageEl.src = `${movies[i].image}`;
+		posterImageEl.classList = "responsive-img materialboxed";
+		console.log("posterImageEl", posterImageEl);
+
+		/* SECTION END: CREATE HTML STRUCTURE TO HOLD MOVIE RESULTS IN MATERIALIZE CSS ^^^-----------------------------------------------------------------^^^ */
+
+		/* SECTION START: APPEND TO DOM USING MATERIALIZE CSS FORMAT VVV----------------------------------------------------------------VVV */
+
+		// append poster to div.card
+		movieCardEl.appendChild(divClassCardImageEl);
+		divClassCardImageEl.appendChild(posterImageEl);
+		divClassCardImageEl.appendChild(addButton).appendChild(materialIcons);
+
+		// append #2-4 to div movieCardEl
+		movieCardEl.appendChild(divClassCardContentEl);
+
+		// N.B. Need to work inside back out when using `.appendchild`
+		// append card-title w/ movie title textContent (#3 & #4) to spanClassCardTitleEl (#2)
+		divClassCardContentEl.appendChild(spanClassCardTitleEl);
+		spanClassCardTitleEl.appendChild(divClassCardTitleYearEl); // ??? Need to insert a space
+
+		// create HTML for div.card-action anchor tags
+		function createImdbLink() {
+			var newP = document.createElement("p");
+			var imdbURL = document.createTextNode(divClassCardActionImdbUrlEl);
+			divClassCardActionImdbUrlEl.textContent;
+			newP.appendChild(imdbURL);
+		}
+		// append links to div.card-action
+		divClassCardActionEl.appendChild(divClassCardActionImdbUrlEl);
+
+		// append div.card-action to div.card-content so it's a sibling of span.card-title
+		divClassCardContentEl.appendChild(divClassCardActionEl);
+
+		// append movieCardEl to movieContainerEl
+		movieContainerEl.appendChild(movieCardEl);
 	}
 };
+
+/* SECTION END: APPEND TO DOM USING MATERIALIZE CSS FORMAT ^^^----------------------------------------------------------------^^^ */
 
 /* step #2:
 	- activated by `addEventListener` triggered when there's a "submit" anywhere on the form element
@@ -65,11 +135,12 @@ var displayMovies = function (movies, searchTerm) {
 		- and send it to `getMovieInfo` for fetch request.     
 		- N.B. e = "event"
  */
+
 var formSubmitHandler = function (e) {
 	// prevent page refresh
 	e.preventDefault();
 
-	// get value from input element
+	// get value from movie search input element
 	var query = queryInputEl.value.trim();
 
 	if (query) {
@@ -87,7 +158,9 @@ var formSubmitHandler = function (e) {
 /* step #3: 
 - `formSubmitHandler` sends search query as parameter to `getMovieInfo` here.
 - this uses API `fetch` request to get movie titles w/ related data as JSON
-- N.B. on lines 80 & 82, they're parameters, but the function call `displayMovies` has arguments */
+- N.B. on lines 80 & 82, they're parameters, but the function call `displayMovies` has arguments 
+- sends it to step #4 `displayMovies` 
+*/
 var getMovieInfo = function (x) {
 	// format the api url -- ??? test the optional chaining by intentionally goofing up the url
 	var apiUrl = "https://imdb-api.com/en/API/SearchMovie/k_vm8gj4hz/" + x;
@@ -106,12 +179,6 @@ var getMovieInfo = function (x) {
 		}
 	});
 };
-
-//Mobile Device: Collapsible SideNav
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
 
 // FUNCTION SECTION END ^^^----------------------------------------------------------------^^^
 
